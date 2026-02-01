@@ -1,0 +1,10 @@
+**/*.pyc
+.python-version
+**/*DS_Store*
+**/*.spec
+assets/*.txt
+dev.env
+
+.venv/
+dist/
+build/

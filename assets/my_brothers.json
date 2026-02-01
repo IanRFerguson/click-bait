@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "name": "Spencer",
+            "age": 28,
+            "city": "Rockville, MD"
+        },
+        {
+            "name": "Gavin",
+            "age": 26,
+            "city": "Arlington, VA"
+        },
+        {
+            "name": "Zach",
+            "age": 21,
+            "city": "Blacksburg, VA"
+        }
+    ]
+}
