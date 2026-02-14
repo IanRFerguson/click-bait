@@ -4,4 +4,8 @@ ruff:
 
 package:
 	@echo "Building package..."
-	@uv run pyinstaller --onefile src/02__example.py
+	@uv run pyinstaller \
+		--log-level ERROR \
+		--onefile \
+		--name pg-click-bait \
+		src/02__example.py

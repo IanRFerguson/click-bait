@@ -1,11 +1,15 @@
-import click
-import json
 import datetime
+import json
+
+import click
 
 
 @click.command()
 @click.option(
-    "--input-file", type=click.Path(exists=True), help="Path to the input file."
+    "--input-file",
+    type=click.Path(exists=True),
+    help="Path to the input file.",
+    required=True,
 )
 @click.option("--include-city", is_flag=True, help="Include city information.")
 @click.option("--write-output", is_flag=True, help="Write output to a text file.")
@@ -28,17 +32,26 @@ def cli(
         output_file (str): Path to the output text file.
     """
 
+    # NOTE - In a production scenario, you would want to add error handling,
+    # input validation, and possibly logging. For the sake of simplicity,
+    # these aspects are omitted here.
+
+    # Load data from the input JSON file
     with open(input_file, "r") as f:
         records = json.load(f)["data"]
 
+    # Process each record and generate output
     for record in records:
         output_string = "{name} is {age} years old.".format(**record)
 
+        # Optionally include city information
         if include_city:
             output_string += " He lives in {city}.".format(**record)
 
         click.echo(output_string)
+        click.echo("\n")
 
+        # Optionally write output to a text file
         if write_output:
             with open(output_file, "a") as _output_file:
                 _output_file.write(
